@@ -12,4 +12,11 @@
 - **Breadboard**: Used for prototyping the circuit, allowing for easy connections and modifications without soldering.
 
 ## Software
-I used the **Arduino IDE** to integrate the software code with the hardware, bringing this project to life. The system continuously reads the temperature, humidity, and soil moisture levels, and activates the pump when the moisture level drops below a certain threshold.
+I used the **Arduino IDE** to integrate the software code with the hardware, bringing this project to life. The system continuously reads the temperature, humidity, and soil moisture levels, and activates the pump when the moisture level drops below a certain threshold. 
+
+## Source Code
+The source code for the Smart Irrigation System is provided in this repository.
+
+## LinkedIn Post
+Check out my LinkedIn post about this project for more details:  
+[My LinkedIn Post](https://www.linkedin.com/posts/abdulrafi0870_iot-arduino-smartirrigation-activity-7227988870565347328-PJNt?utm_source=share&utm_medium=member_desktop)
