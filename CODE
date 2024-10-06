@@ -1,0 +1,76 @@
+#include <DHT.h>
+#include <LiquidCrystal.h>
+#include <Servo.h>
+
+#define DHT11_PIN 7
+#define DHTTYPE DHT11
+
+LiquidCrystal lcd(0, 1, 2, 3, 4, 5);
+DHT dht(DHTTYPE, DHT11_PIN);
+Servo waterServo;
+
+int sensorPin = A0;
+int relayPin = 6;
+int servoPin = 9;
+float temperature, humidity;
+int moistureThreshold = 30;
+
+void setup() {
+    Serial.begin(9600);
+    lcd.begin(16, 2);
+    pinMode(sensorPin, INPUT);
+    pinMode(relayPin, OUTPUT);
+    waterServo.attach(servoPin);
+    dht.begin();
+}
+
+void loop() {
+    temperature = dht.readTemperature();
+    humidity = dht.readHumidity();
+
+    if (isnan(temperature) || isnan(humidity)) {
+        Serial.println("Failed to read from DHT sensor!");
+        return;
+    }
+
+    Serial.print("Celsius: ");
+    Serial.println(temperature);
+    Serial.print("Humidity: ");
+    Serial.println(humidity);
+    
+    lcd.setCursor(0, 0);
+    lcd.print("Temp: ");
+    lcd.print(temperature);
+    lcd.print((char)223);
+    lcd.print("C");
+
+    lcd.setCursor(0, 1);
+    lcd.print("Humidity: ");
+    lcd.print(humidity);
+    lcd.print("%");
+    delay(2000);
+
+    int moistureValue = analogRead(sensorPin);
+    int moisturePercent = map(moistureValue, 550, 10, 0, 100);
+
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("Moisture: ");
+    lcd.print(moisturePercent);
+    lcd.print("%");
+
+    if (moisturePercent < moistureThreshold) {
+        digitalWrite(relayPin, LOW);
+        lcd.setCursor(0, 1);
+        lcd.print("Motor: ON  ");
+        waterServo.write(90);
+    } else {
+        digitalWrite(relayPin, HIGH);
+        lcd.setCursor(0, 1);
+        lcd.print("Motor: OFF ");
+        waterServo.write(0);
+    }
+    
+    delay(5000);
+    lcd.clear();
+}
