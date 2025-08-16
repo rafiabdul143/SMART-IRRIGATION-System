@@ -1,7 +1,7 @@
 #include <DHT.h>
 #include <LiquidCrystal.h>
 #include <Servo.h>
-
+ 
 #define DHT11_PIN 7
 #define DHTTYPE DHT11
 
