@@ -1,4 +1,4 @@
-# Smart Irrigation System
+ # Smart Irrigation System
 ## Prerequisites
 - **Arduino IDE**: You need to have the Arduino IDE installed on your computer. You can download it from the [Arduino website](https://www.arduino.cc/en/software).
 
