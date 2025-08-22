@@ -13,7 +13,7 @@
 ## Software
 I used the **Arduino IDE** to integrate the software code with the hardware, bringing this project to life. The system continuously reads the temperature, humidity, and soil moisture levels, and activates the pump when the moisture level drops below a certain threshold. 
 
-## Source Code
+## Source Code 
 The source code for the Smart Irrigation System is provided in this repository.
 
 ## LinkedIn Post
