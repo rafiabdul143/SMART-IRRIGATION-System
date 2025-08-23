@@ -1,7 +1,7 @@
  # Smart Irrigation System
 ## Prerequisites
 - **Arduino IDE**: You need to have the Arduino IDE installed on your computer. You can download it from the [Arduino website](https://www.arduino.cc/en/software).
-
+ 
 ## Key Components
 - **Microcontroller (Arduino Uno)**: The brain of the system, processing data and controlling actions.
 - **Moisture Sensor**: Monitors soil moisture levels, helping the system determine when irrigation is needed.
